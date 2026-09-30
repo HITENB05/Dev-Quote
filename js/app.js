@@ -2,6 +2,7 @@ import { state, toggleBookmark, toggleFlip } from './state.js';
 import { renderCard } from './cardRenderer.js';
 import { filterSnippets, computeCategoryCounts, computeTopTags } from './searchFilter.js';
 import { getIcon } from './icons.js';
+import bundledSnippets from '../data/snippets.json';
 
 // DOM Elements
 const searchInput = document.getElementById('search-input');
@@ -15,13 +16,18 @@ const btnBookmarksToggle = document.getElementById('btn-bookmarks-toggle');
 const totalSnippetsCount = document.getElementById('total-snippets-count');
 
 async function init() {
-  try {
-    const res = await fetch('./data/snippets.json');
-    if (!res.ok) throw new Error('Failed to load snippets');
-    state.snippets = await res.json();
-  } catch (err) {
-    console.error('Error fetching snippets:', err);
-    state.snippets = [];
+  if (Array.isArray(bundledSnippets) && bundledSnippets.length > 0) {
+    state.snippets = bundledSnippets;
+  } else {
+    try {
+      const res = await fetch('./data/snippets.json');
+      if (res.ok) {
+        state.snippets = await res.json();
+      }
+    } catch (err) {
+      console.warn('Fallback fetch failed:', err);
+      state.snippets = [];
+    }
   }
 
   // Extract unique categories

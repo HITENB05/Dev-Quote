@@ -39,8 +39,18 @@ function buildRegistry() {
     return a.category.localeCompare(b.category);
   });
 
+  // Write to data/snippets.json
   fs.writeFileSync(outputFile, JSON.stringify(snippets, null, 2), 'utf-8');
-  console.log(`Successfully compiled ${snippets.length} snippets into ${outputFile}`);
+
+  // Also write to public/data/snippets.json so Vite static copy includes it in dist/
+  const publicDataDir = path.resolve(__dirname, '../public/data');
+  if (!fs.existsSync(publicDataDir)) {
+    fs.mkdirSync(publicDataDir, { recursive: true });
+  }
+  const publicOutputFile = path.join(publicDataDir, 'snippets.json');
+  fs.writeFileSync(publicOutputFile, JSON.stringify(snippets, null, 2), 'utf-8');
+
+  console.log(`Successfully compiled ${snippets.length} snippets into ${outputFile} and ${publicOutputFile}`);
 }
 
 buildRegistry();

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/build-data.js && vite build",
     "preview": "vite preview",
     "build:data": "node scripts/build-data.js",
     "test:snippets": "node scripts/validate-snippets.js"
