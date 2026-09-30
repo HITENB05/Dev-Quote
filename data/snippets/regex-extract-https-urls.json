@@ -1,0 +1,18 @@
+{
+  "id": "regex-extract-https-urls",
+  "title": "Match and Extract Valid HTTPS Web URLs",
+  "category": "Regex",
+  "tags": ["regex", "parsing", "validation", "strings", "security"],
+  "code": "https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)",
+  "language": "regex",
+  "explanation": "Extracts protocol-bound web addresses from raw text strings, supporting subdomains, standard top-level domains (TLDs), ports, query strings, and URI fragments.",
+  "caveat": "URL validation via regular expressions is notoriously prone to edge cases. In JavaScript applications, consider pairing this with the native new URL(string) constructor.",
+  "variations": [
+    { "label": "Strict HTTPS enforcement only", "code": "https:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*" },
+    { "label": "Domain name only (FQDN)", "code": "(?=^.{4,253}$)(^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,63}$)" }
+  ],
+  "author": {
+    "name": "Jordan Hayes",
+    "github": "jhayes-sec"
+  }
+}

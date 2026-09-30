@@ -1,0 +1,14 @@
+{
+  "id": "regex-camel-to-kebab",
+  "title": "Convert camelCase to kebab-case",
+  "category": "Regex",
+  "tags": ["regex", "javascript", "string", "formatter"],
+  "code": "str.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase()",
+  "language": "javascript",
+  "explanation": "Finds transitions between lowercase/numbers and uppercase letters and inserts a hyphen between them, then converts the result to lowercase.",
+  "tip": "Great for converting React component names or JavaScript object keys into CSS class names or URL slugs.",
+  "author": {
+    "name": "Elena Rostova",
+    "github": "elenarost"
+  }
+}

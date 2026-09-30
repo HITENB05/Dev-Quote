@@ -1,0 +1,18 @@
+{
+  "id": "git-squash-commits",
+  "title": "Interactive Squash of Last N Commits",
+  "category": "Git",
+  "tags": ["git", "rebase", "squash", "clean-history", "pr"],
+  "code": "git rebase -i HEAD~4",
+  "language": "bash",
+  "explanation": "Opens an interactive editor allowing you to combine the last 4 commits into a single cohesive commit. Replace 'pick' with 'squash' (or 's') on secondary commits to merge them into the previous commit.",
+  "caveat": "Never rebase commits that have already been pushed to a shared production or protected branch, as this rewrites public Git commit hashes.",
+  "variations": [
+    { "label": "Auto-squash fixups", "code": "git rebase -i --autosquash HEAD~4" },
+    { "label": "Abort in-progress rebase", "code": "git rebase --abort" }
+  ],
+  "author": {
+    "name": "Marcus Vance",
+    "github": "mvance-eng"
+  }
+}

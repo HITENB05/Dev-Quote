@@ -1,0 +1,18 @@
+{
+  "id": "docker-prune-system",
+  "title": "Prune All Unused Containers, Networks & Dangling Images",
+  "category": "Docker",
+  "tags": ["docker", "devops", "cleanup", "disk-space", "containers"],
+  "code": "docker system prune -a --volumes --force",
+  "language": "bash",
+  "explanation": "Removes all stopped containers, all dangling and unreferenced images, unused bridge networks, and all orphaned anonymous build cache volumes in a single sweep.",
+  "caveat": "This will wipe local database containers if they use anonymous volumes. Ensure critical data is mapped to persistent named volumes or host directory mounts.",
+  "variations": [
+    { "label": "Dry run preview", "code": "docker system df" },
+    { "label": "Remove only dangling images", "code": "docker image prune" }
+  ],
+  "author": {
+    "name": "Devin Kowalski",
+    "github": "dkowalski-ops"
+  }
+}

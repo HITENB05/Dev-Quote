@@ -1,0 +1,14 @@
+{
+  "id": "css-glassmorphism",
+  "title": "Frosted Glassmorphism Effect",
+  "category": "CSS",
+  "tags": ["css", "glassmorphism", "backdrop-filter", "modern-ui"],
+  "code": "background: rgba(255, 255, 255, 0.05);\nbackdrop-filter: blur(12px) saturate(180%);\n-webkit-backdrop-filter: blur(12px) saturate(180%);\nborder: 1px solid rgba(255, 255, 255, 0.12);\nborder-radius: 16px;\nbox-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);",
+  "language": "css",
+  "explanation": "Creates a modern frosted-glass container using semi-transparent alpha backgrounds and hardware-accelerated backdrop blur with a subtle light-catching border.",
+  "tip": "Always test contrast ratios for text placed on top of blurred dynamic backgrounds for accessibility.",
+  "author": {
+    "name": "Kai Thorne",
+    "github": "kaithorne"
+  }
+}

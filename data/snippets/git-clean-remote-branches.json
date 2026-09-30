@@ -1,0 +1,18 @@
+{
+  "id": "git-clean-remote-branches",
+  "title": "Prune Stale Remote-Tracking Branch References",
+  "category": "Git",
+  "tags": ["git", "remote", "cleanup", "branches", "cli"],
+  "code": "git fetch --prune --all\ngit branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D",
+  "language": "bash",
+  "explanation": "Fetches updates while removing dead remote references, then locates and force-deletes all local tracking branches whose remote counterparts have already been merged and closed.",
+  "caveat": "The second command uses git branch -D which forcibly deletes. Ensure you have pushed any pending commits before executing.",
+  "variations": [
+    { "label": "Fetch prune only (safe)", "code": "git fetch -p" },
+    { "label": "Configure auto-prune globally", "code": "git config --global fetch.prune true" }
+  ],
+  "author": {
+    "name": "Marcus Vance",
+    "github": "mvance-eng"
+  }
+}

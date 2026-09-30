@@ -1,0 +1,14 @@
+{
+  "id": "docker-clean-unused",
+  "title": "Nuke All Dangling Docker Resources",
+  "category": "Docker",
+  "tags": ["docker", "containers", "cleanup", "devops"],
+  "code": "docker system prune -a --volumes -f",
+  "language": "bash",
+  "explanation": "Removes all stopped containers, all networks not used by at least one container, all unused images (not just dangling ones), and all build cache and anonymous volumes.",
+  "tip": "WARNING: This will reclaim gigabytes of disk space but forces redownload and rebuild on your next run.",
+  "author": {
+    "name": "Elena Rostova",
+    "github": "elenarost"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "linux-find-large-files",
+  "title": "Locate Top 10 Largest Files in Filesystem",
+  "category": "Linux",
+  "tags": ["linux", "bash", "storage", "disk-cleanup", "sysadmin"],
+  "code": "find / -xdev -type f -size +100M -exec du -sh {} + 2>/dev/null | sort -rh | head -n 10",
+  "language": "bash",
+  "explanation": "Scans the root mount while staying within the same filesystem (-xdev) to avoid network mounts, finds files over 100MB, prints human-readable sizes, and displays the top 10 space hogs.",
+  "caveat": "Requires sudo permissions to inspect protected system directories such as /var/log or /root.",
+  "variations": [
+    { "label": "Search within current directory only", "code": "find . -type f -size +50M -exec du -h {} + | sort -rh | head -n 10" },
+    { "label": "NCurses interactive disk visualizer", "code": "ncdu /" }
+  ],
+  "author": {
+    "name": "Jordan Hayes",
+    "github": "jhayes-sec"
+  }
+}

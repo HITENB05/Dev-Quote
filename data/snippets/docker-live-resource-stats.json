@@ -1,0 +1,18 @@
+{
+  "id": "docker-live-resource-stats",
+  "title": "Stream Live CPU, RAM & I/O Metrics for Containers",
+  "category": "Docker",
+  "tags": ["docker", "monitoring", "metrics", "performance", "cli"],
+  "code": "docker stats --format \"table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.NetIO}}\t{{.BlockIO}}\"",
+  "language": "bash",
+  "explanation": "Outputs a live streaming terminal dashboard showing real-time CPU percentages, memory limits, and socket network throughput for all active containers.",
+  "caveat": "Omitting the --no-stream flag keeps the terminal open continuously. In CI/CD headless scripts, include --no-stream to take a single snapshot reading.",
+  "variations": [
+    { "label": "Single snapshot without streaming", "code": "docker stats --no-stream" },
+    { "label": "Filter to specific container", "code": "docker stats api-service redis-cache" }
+  ],
+  "author": {
+    "name": "Devin Kowalski",
+    "github": "dkowalski-ops"
+  }
+}

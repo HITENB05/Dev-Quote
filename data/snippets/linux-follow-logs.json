@@ -1,0 +1,14 @@
+{
+  "id": "linux-follow-logs",
+  "title": "Color-Filtered Live Log Streaming",
+  "category": "Linux",
+  "tags": ["linux", "logs", "monitoring", "tail"],
+  "code": "tail -f app.log | grep --line-buffered -E \"(ERROR|WARN|FATAL)\"",
+  "language": "bash",
+  "explanation": "Follows log output in real-time, buffering line-by-line so outputs appear immediately when errors or warnings are thrown.",
+  "tip": "Pipe into `grep --color=always` or install `ccat`/`bat` to highlight matching log levels in bright red and yellow.",
+  "author": {
+    "name": "Alex Rivera",
+    "github": "alexrivera"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "sql-upsert-record",
+  "title": "PostgreSQL Upsert with ON CONFLICT DO UPDATE",
+  "category": "SQL",
+  "tags": ["sql", "postgresql", "database", "upsert", "backend"],
+  "code": "INSERT INTO user_preferences (user_id, theme, updated_at)\nVALUES ('u_9281', 'dark', NOW())\nON CONFLICT (user_id)\nDO UPDATE SET\n  theme = EXCLUDED.theme,\n  updated_at = NOW();",
+  "language": "sql",
+  "explanation": "Atomically inserts a new record or performs an update if a unique constraint or primary key conflict exists on the target column, avoiding race conditions in concurrent write workloads.",
+  "caveat": "The target column(s) inside ON CONFLICT must have a corresponding UNIQUE constraint or PRIMARY KEY index defined on the table schema.",
+  "variations": [
+    { "label": "Ignore on conflict (DO NOTHING)", "code": "ON CONFLICT (user_id) DO NOTHING;" },
+    { "label": "MySQL equivalent", "code": "INSERT INTO ... ON DUPLICATE KEY UPDATE theme=VALUES(theme);" }
+  ],
+  "author": {
+    "name": "Sarah Lin",
+    "github": "sarahlin-dev"
+  }
+}

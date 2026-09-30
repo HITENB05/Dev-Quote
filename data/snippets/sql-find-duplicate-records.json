@@ -1,0 +1,18 @@
+{
+  "id": "sql-find-duplicate-records",
+  "title": "Find and Group Duplicate Records in Table",
+  "category": "SQL",
+  "tags": ["sql", "data-integrity", "queries", "analytics", "backend"],
+  "code": "SELECT email, COUNT(*)\nFROM users\nGROUP BY email\nHAVING COUNT(*) > 1\nORDER BY count DESC;",
+  "language": "sql",
+  "explanation": "Aggregates rows sharing the same value and filters out unique items using HAVING COUNT(*) > 1, isolating duplicate entries before applying deduplication scripts.",
+  "caveat": "WHERE filters rows before grouping occurs, while HAVING filters aggregated group results after grouping.",
+  "variations": [
+    { "label": "List full rows using window function", "code": "SELECT *, ROW_NUMBER() OVER (PARTITION BY email ORDER BY id) as rn FROM users;" },
+    { "label": "Delete duplicates keeping lowest id", "code": "DELETE FROM users WHERE id NOT IN (SELECT MIN(id) FROM users GROUP BY email);" }
+  ],
+  "author": {
+    "name": "Marcus Vance",
+    "github": "mvance-eng"
+  }
+}

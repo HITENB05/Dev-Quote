@@ -1,0 +1,18 @@
+{
+  "id": "linux-recursive-text-search",
+  "title": "Fast Recursive Text Search Excluding Artifacts",
+  "category": "Linux",
+  "tags": ["linux", "grep", "search", "cli", "workflow"],
+  "code": "grep -rnI --exclude-dir={node_modules,.git,dist} \"SECRET_KEY\" .",
+  "language": "bash",
+  "explanation": "Recursively searches directories for the string 'SECRET_KEY', reporting line numbers (-n), skipping binary files (-I), and excluding heavy bloat folders like node_modules and .git.",
+  "caveat": "For massive codebases, ripgrep (rg) or ag (The Silver Searcher) will execute significantly faster than GNU grep.",
+  "variations": [
+    { "label": "Using ripgrep (modern standard)", "code": "rg -i \"SECRET_KEY\" -g '!node_modules/'" },
+    { "label": "Count matching occurrences only", "code": "grep -rc \"SECRET_KEY\" src/" }
+  ],
+  "author": {
+    "name": "Devin Kowalski",
+    "github": "dkowalski-ops"
+  }
+}

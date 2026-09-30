@@ -1,0 +1,14 @@
+{
+  "id": "js-wait-sleep",
+  "title": "Async Sleep / Delay Promise",
+  "category": "JavaScript",
+  "tags": ["javascript", "async", "promises", "timing"],
+  "code": "const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));\n\n// Usage:\nawait sleep(1500);",
+  "language": "javascript",
+  "explanation": "Provides a clean, promise-based pause mechanism within any async function, simulating network latency, polling pauses, or sequential visual transitions.",
+  "tip": "Never use blocking synchronous while-loops for delays in JS; they freeze the main UI execution thread.",
+  "author": {
+    "name": "Marcus Vance",
+    "github": "mvance"
+  }
+}

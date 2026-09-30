@@ -1,0 +1,18 @@
+{
+  "id": "css-hide-scrollbar-modern",
+  "title": "Hide Scrollbars While Preserving Scroll Functionality",
+  "category": "CSS",
+  "tags": ["css", "ui", "ux", "scrollbar", "cross-browser"],
+  "code": "/* Modern Firefox and Standards */\n.no-scrollbar {\n  scrollbar-width: none;\n  -ms-overflow-style: none;\n}\n\n/* Chromium and WebKit */\n.no-scrollbar::-webkit-scrollbar {\n  display: none;\n}",
+  "language": "css",
+  "explanation": "Completely hides visible scrollbar bars across Chrome, Safari, Edge, and Firefox while keeping elements fully scrollable via touch, trackpad, and mouse wheel.",
+  "caveat": "Ensure visual indicators (like gradient fade masks) hint to users that additional content overflows beyond the visible viewport boundary.",
+  "variations": [
+    { "label": "Custom thin scrollbar styling", "code": "scrollbar-width: thin; scrollbar-color: #334155 transparent;" },
+    { "label": "Tailwind utility helper equivalent", "code": "scrollbar-none" }
+  ],
+  "author": {
+    "name": "Amina Chen",
+    "github": "aminachen-frontend"
+  }
+}

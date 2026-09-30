@@ -1,0 +1,18 @@
+{
+  "id": "git-undo-last-commit",
+  "title": "Undo Last Commit (Preserve Changes)",
+  "category": "Git",
+  "tags": ["git", "history", "undo", "staging", "cli"],
+  "code": "git reset --soft HEAD~1",
+  "language": "bash",
+  "explanation": "Moves HEAD back by one commit while preserving all modified files in your staging area. This allows you to re-stage, alter the commit message, or adjust your changes before committing again.",
+  "caveat": "Do not use --hard unless you intend to permanently delete all modified code and uncommitted work in the current branch.",
+  "variations": [
+    { "label": "Keep in working tree (unstaged)", "code": "git reset HEAD~1" },
+    { "label": "Completely discard changes", "code": "git reset --hard HEAD~1" }
+  ],
+  "author": {
+    "name": "Sarah Lin",
+    "github": "sarahlin-dev"
+  }
+}

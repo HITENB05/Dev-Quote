@@ -1,0 +1,14 @@
+{
+  "id": "git-discard-local",
+  "title": "Discard All Local Uncommitted Changes",
+  "category": "Git",
+  "tags": ["git", "restore", "clean", "reset"],
+  "code": "git restore . && git clean -fd",
+  "language": "bash",
+  "explanation": "`git restore .` reverts all tracked modified and deleted files to HEAD, while `git clean -fd` forcefully removes all untracked files and directories.",
+  "tip": "Run `git clean -nd` first to perform a dry run and inspect what would be deleted.",
+  "author": {
+    "name": "Sarah Chen",
+    "github": "sarahchen"
+  }
+}

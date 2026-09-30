@@ -1,0 +1,18 @@
+{
+  "id": "linux-port-process-lookup",
+  "title": "Identify Process Listening on Specific Port",
+  "category": "Linux",
+  "tags": ["linux", "networking", "ports", "debug", "sysadmin"],
+  "code": "sudo lsof -i :8080 -sTCP:LISTEN -P -n",
+  "language": "bash",
+  "explanation": "Lists the exact Process Name and PID currently occupying port 8080. The -P flag prevents port name resolution (keeps numeric 8080) and -n avoids DNS lookups for instant results.",
+  "caveat": "If lsof is not installed on lightweight Linux images, fall back to modern ss or legacy netstat commands.",
+  "variations": [
+    { "label": "Using socket statistics (ss)", "code": "ss -tulpn | grep :8080" },
+    { "label": "Kill process occupying the port", "code": "sudo kill -9 $(lsof -t -i:8080)" }
+  ],
+  "author": {
+    "name": "Jordan Hayes",
+    "github": "jhayes-sec"
+  }
+}

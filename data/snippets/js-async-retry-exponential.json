@@ -1,0 +1,18 @@
+{
+  "id": "js-async-retry-exponential",
+  "title": "Robust Async Promise Retry with Exponential Backoff",
+  "category": "JavaScript",
+  "tags": ["javascript", "typescript", "async", "networking", "resilience"],
+  "code": "async function retryOperation(fn, retries = 3, delay = 1000) {\n  try {\n    return await fn();\n  } catch (error) {\n    if (retries <= 1) throw error;\n    await new Promise(res => setTimeout(res, delay));\n    return retryOperation(fn, retries - 1, delay * 2);\n  }\n}",
+  "language": "javascript",
+  "explanation": "Guarantees network and API resilience against transient rate-limits (HTTP 429) and network blips by doubling the delay period after each failed execution attempt.",
+  "caveat": "Do not retry non-idempotent operations (such as credit card checkout charges) unless idempotency keys are supported by the downstream endpoint.",
+  "variations": [
+    { "label": "Add random jitter to prevent thundering herd", "code": "const jitteredDelay = delay * 2 + Math.random() * 200;" },
+    { "label": "Retry only on specific HTTP status codes", "code": "if (![408, 429, 500, 502, 503].includes(error.status)) throw error;" }
+  ],
+  "author": {
+    "name": "Marcus Vance",
+    "github": "mvance-eng"
+  }
+}

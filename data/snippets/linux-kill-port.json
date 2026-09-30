@@ -1,0 +1,14 @@
+{
+  "id": "linux-kill-port",
+  "title": "Kill Any Process Hogging a Port",
+  "category": "Linux",
+  "tags": ["linux", "bash", "ports", "networking", "debug"],
+  "code": "npx kill-port 3000\n# or natively:\nlsof -ti:3000 | xargs kill -9",
+  "language": "bash",
+  "explanation": "Finds the Process ID (PID) holding a TCP port (e.g. 3000, 8080) and terminates it immediately without having to manually search `ps aux`.",
+  "tip": "Substitute 3000 with whatever port your stubborn local server (Vite, Next.js, Flask) refused to surrender.",
+  "author": {
+    "name": "Devan Koo",
+    "github": "devankoo"
+  }
+}

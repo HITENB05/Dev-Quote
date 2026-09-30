@@ -1,0 +1,14 @@
+{
+  "id": "css-hide-scrollbar",
+  "title": "Hide Scrollbar (Keep Scrolling)",
+  "category": "CSS",
+  "tags": ["css", "scrollbar", "ui", "styling"],
+  "code": ".no-scrollbar::-webkit-scrollbar {\n  display: none;\n}\n.no-scrollbar {\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n}",
+  "language": "css",
+  "explanation": "Removes visual scrollbars while preserving touch, trackpad, and mouse-wheel scrolling across Chrome, Safari, Firefox, and Edge.",
+  "tip": "Ensure content still has visual cues (like gradients or shadows) so users realize the area is scrollable.",
+  "author": {
+    "name": "Elena Rostova",
+    "github": "elenarost"
+  }
+}

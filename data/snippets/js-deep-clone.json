@@ -1,0 +1,14 @@
+{
+  "id": "js-deep-clone",
+  "title": "Native Deep Object Clone",
+  "category": "JavaScript",
+  "tags": ["javascript", "objects", "cloning", "web-api"],
+  "code": "const deepCopy = structuredClone(originalObject);",
+  "language": "javascript",
+  "explanation": "Standard native browser API that deeply clones complex objects, preserving nested structures, Date objects, Maps, Sets, and circular references without lodash.",
+  "tip": "Note: Cannot clone Functions, DOM nodes, or object prototypes; throw an error if attempted.",
+  "author": {
+    "name": "Kai Thorne",
+    "github": "kaithorne"
+  }
+}

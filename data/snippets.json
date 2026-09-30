@@ -1,0 +1,1005 @@
+[
+  {
+    "id": "css-truncate-multiline",
+    "title": "Clean Multiline Text Ellipsis",
+    "category": "CSS",
+    "tags": [
+      "css",
+      "overflow",
+      "typography",
+      "layout"
+    ],
+    "code": "display: -webkit-box;\n-webkit-line-clamp: 3;\n-webkit-box-orient: vertical;\noverflow: hidden;\ntext-overflow: ellipsis;",
+    "language": "css",
+    "explanation": "Truncates long text gracefully after exactly 3 lines (or any specified number) with a native ellipsis (...) without cutting off halfway through letters.",
+    "tip": "Works reliably across all modern evergreen browsers including iOS WebKit and Android Chromium.",
+    "author": {
+      "name": "Sarah Chen",
+      "github": "sarahchen"
+    }
+  },
+  {
+    "id": "css-modern-fluid-clamp",
+    "title": "Fluid Responsive Typography via clamp()",
+    "category": "CSS",
+    "tags": [
+      "css",
+      "typography",
+      "responsive",
+      "layout",
+      "design-system"
+    ],
+    "code": "font-size: clamp(1.125rem, 0.95rem + 1.25vw, 2.25rem);",
+    "language": "css",
+    "explanation": "Calculates font sizing dynamically without requiring multiple media query breakpoints. Sets minimum bound (1.125rem), fluid scaling formula based on viewport width (vw), and strict upper ceiling (2.25rem).",
+    "caveat": "Always combine viewport units with rem/em units (e.g. 0.95rem + 1.25vw) so users who zoom their browser font sizes maintain accessible text scaling.",
+    "variations": [
+      {
+        "label": "Fluid container padding",
+        "code": "padding-inline: clamp(1rem, 5vw, 4rem);"
+      },
+      {
+        "label": "Fluid header scale",
+        "code": "font-size: clamp(2rem, 1.5rem + 3vw, 4.5rem);"
+      }
+    ],
+    "author": {
+      "name": "Elena Rostova",
+      "github": "erostova"
+    }
+  },
+  {
+    "id": "css-clamp-fluid-text",
+    "title": "Fluid Responsive Typography with Clamp",
+    "category": "CSS",
+    "tags": [
+      "css",
+      "typography",
+      "responsive",
+      "clamp"
+    ],
+    "code": "font-size: clamp(1.25rem, 1rem + 2.5vw, 3rem);",
+    "language": "css",
+    "explanation": "Calculates font size dynamically based on viewport width: never shrinks below 1.25rem (min), scales proportionally on mid-size screens, and caps at 3rem (max) without media queries.",
+    "tip": "Combine rem with vw units to ensure users who adjust their browser base font size still see accessible scaling.",
+    "author": {
+      "name": "Marcus Vance",
+      "github": "mvance"
+    }
+  },
+  {
+    "id": "css-glassmorphism",
+    "title": "Frosted Glassmorphism Effect",
+    "category": "CSS",
+    "tags": [
+      "css",
+      "glassmorphism",
+      "backdrop-filter",
+      "modern-ui"
+    ],
+    "code": "background: rgba(255, 255, 255, 0.05);\nbackdrop-filter: blur(12px) saturate(180%);\n-webkit-backdrop-filter: blur(12px) saturate(180%);\nborder: 1px solid rgba(255, 255, 255, 0.12);\nborder-radius: 16px;\nbox-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);",
+    "language": "css",
+    "explanation": "Creates a modern frosted-glass container using semi-transparent alpha backgrounds and hardware-accelerated backdrop blur with a subtle light-catching border.",
+    "tip": "Always test contrast ratios for text placed on top of blurred dynamic backgrounds for accessibility.",
+    "author": {
+      "name": "Kai Thorne",
+      "github": "kaithorne"
+    }
+  },
+  {
+    "id": "css-hide-scrollbar",
+    "title": "Hide Scrollbar (Keep Scrolling)",
+    "category": "CSS",
+    "tags": [
+      "css",
+      "scrollbar",
+      "ui",
+      "styling"
+    ],
+    "code": ".no-scrollbar::-webkit-scrollbar {\n  display: none;\n}\n.no-scrollbar {\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n}",
+    "language": "css",
+    "explanation": "Removes visual scrollbars while preserving touch, trackpad, and mouse-wheel scrolling across Chrome, Safari, Firefox, and Edge.",
+    "tip": "Ensure content still has visual cues (like gradients or shadows) so users realize the area is scrollable.",
+    "author": {
+      "name": "Elena Rostova",
+      "github": "elenarost"
+    }
+  },
+  {
+    "id": "css-hide-scrollbar-modern",
+    "title": "Hide Scrollbars While Preserving Scroll Functionality",
+    "category": "CSS",
+    "tags": [
+      "css",
+      "ui",
+      "ux",
+      "scrollbar",
+      "cross-browser"
+    ],
+    "code": "/* Modern Firefox and Standards */\n.no-scrollbar {\n  scrollbar-width: none;\n  -ms-overflow-style: none;\n}\n\n/* Chromium and WebKit */\n.no-scrollbar::-webkit-scrollbar {\n  display: none;\n}",
+    "language": "css",
+    "explanation": "Completely hides visible scrollbar bars across Chrome, Safari, Edge, and Firefox while keeping elements fully scrollable via touch, trackpad, and mouse wheel.",
+    "caveat": "Ensure visual indicators (like gradient fade masks) hint to users that additional content overflows beyond the visible viewport boundary.",
+    "variations": [
+      {
+        "label": "Custom thin scrollbar styling",
+        "code": "scrollbar-width: thin; scrollbar-color: #334155 transparent;"
+      },
+      {
+        "label": "Tailwind utility helper equivalent",
+        "code": "scrollbar-none"
+      }
+    ],
+    "author": {
+      "name": "Amina Chen",
+      "github": "aminachen-frontend"
+    }
+  },
+  {
+    "id": "css-grid-auto-fit-cards",
+    "title": "Responsive Auto-Fitting Grid Without Media Queries",
+    "category": "CSS",
+    "tags": [
+      "css",
+      "grid",
+      "responsive",
+      "cards",
+      "layout"
+    ],
+    "code": ".card-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));\n  gap: 1.5rem;\n}",
+    "language": "css",
+    "explanation": "Creates a flawless fluid grid where cards wrap naturally as screen space allows. The min(100%, 320px) guard prevents unwanted horizontal overflow on ultra-narrow mobile displays.",
+    "caveat": "Use auto-fill instead of auto-fit if you prefer empty column slots on wider screens rather than stretching few items to full screen width.",
+    "variations": [
+      {
+        "label": "Stretch sparse items (auto-fit)",
+        "code": "grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));"
+      },
+      {
+        "label": "Subgrid support for aligned footers",
+        "code": "grid-template-rows: subgrid;"
+      }
+    ],
+    "author": {
+      "name": "Elena Rostova",
+      "github": "erostova"
+    }
+  },
+  {
+    "id": "docker-interactive-shell",
+    "title": "Attach Interactive Shell to Running Container",
+    "category": "Docker",
+    "tags": [
+      "docker",
+      "containers",
+      "debugging",
+      "shell",
+      "bash"
+    ],
+    "code": "docker exec -it <container_name_or_id> /bin/sh",
+    "language": "bash",
+    "explanation": "Spawns an interactive pseudo-TTY session inside the target container. Using /bin/sh is safer than /bin/bash as minimal base images (Alpine, distroless) rarely include bash.",
+    "caveat": "If debugging a non-root container with permission locks, append --user root to elevate inside the temporary debug shell.",
+    "variations": [
+      {
+        "label": "Execute as root user",
+        "code": "docker exec -u 0 -it <container_id> sh"
+      },
+      {
+        "label": "Run one-off diagnostic command",
+        "code": "docker exec <container_id> cat /etc/hosts"
+      }
+    ],
+    "author": {
+      "name": "Sarah Lin",
+      "github": "sarahlin-dev"
+    }
+  },
+  {
+    "id": "docker-inspect-ip",
+    "title": "Get Running Container Internal IP",
+    "category": "Docker",
+    "tags": [
+      "docker",
+      "networking",
+      "inspect",
+      "cli"
+    ],
+    "code": "docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_name>",
+    "language": "bash",
+    "explanation": "Extracts the internal bridge network IPv4 address assigned to a running container without needing to dump and scroll the full JSON inspect output.",
+    "tip": "Replace <container_name> with the container's nickname or its 12-character hexadecimal ID.",
+    "author": {
+      "name": "Sarah Chen",
+      "github": "sarahchen"
+    }
+  },
+  {
+    "id": "docker-clean-unused",
+    "title": "Nuke All Dangling Docker Resources",
+    "category": "Docker",
+    "tags": [
+      "docker",
+      "containers",
+      "cleanup",
+      "devops"
+    ],
+    "code": "docker system prune -a --volumes -f",
+    "language": "bash",
+    "explanation": "Removes all stopped containers, all networks not used by at least one container, all unused images (not just dangling ones), and all build cache and anonymous volumes.",
+    "tip": "WARNING: This will reclaim gigabytes of disk space but forces redownload and rebuild on your next run.",
+    "author": {
+      "name": "Elena Rostova",
+      "github": "elenarost"
+    }
+  },
+  {
+    "id": "docker-prune-system",
+    "title": "Prune All Unused Containers, Networks & Dangling Images",
+    "category": "Docker",
+    "tags": [
+      "docker",
+      "devops",
+      "cleanup",
+      "disk-space",
+      "containers"
+    ],
+    "code": "docker system prune -a --volumes --force",
+    "language": "bash",
+    "explanation": "Removes all stopped containers, all dangling and unreferenced images, unused bridge networks, and all orphaned anonymous build cache volumes in a single sweep.",
+    "caveat": "This will wipe local database containers if they use anonymous volumes. Ensure critical data is mapped to persistent named volumes or host directory mounts.",
+    "variations": [
+      {
+        "label": "Dry run preview",
+        "code": "docker system df"
+      },
+      {
+        "label": "Remove only dangling images",
+        "code": "docker image prune"
+      }
+    ],
+    "author": {
+      "name": "Devin Kowalski",
+      "github": "dkowalski-ops"
+    }
+  },
+  {
+    "id": "docker-live-resource-stats",
+    "title": "Stream Live CPU, RAM & I/O Metrics for Containers",
+    "category": "Docker",
+    "tags": [
+      "docker",
+      "monitoring",
+      "metrics",
+      "performance",
+      "cli"
+    ],
+    "code": "docker stats --format \"table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.NetIO}}\t{{.BlockIO}}\"",
+    "language": "bash",
+    "explanation": "Outputs a live streaming terminal dashboard showing real-time CPU percentages, memory limits, and socket network throughput for all active containers.",
+    "caveat": "Omitting the --no-stream flag keeps the terminal open continuously. In CI/CD headless scripts, include --no-stream to take a single snapshot reading.",
+    "variations": [
+      {
+        "label": "Single snapshot without streaming",
+        "code": "docker stats --no-stream"
+      },
+      {
+        "label": "Filter to specific container",
+        "code": "docker stats api-service redis-cache"
+      }
+    ],
+    "author": {
+      "name": "Devin Kowalski",
+      "github": "dkowalski-ops"
+    }
+  },
+  {
+    "id": "git-discard-local",
+    "title": "Discard All Local Uncommitted Changes",
+    "category": "Git",
+    "tags": [
+      "git",
+      "restore",
+      "clean",
+      "reset"
+    ],
+    "code": "git restore . && git clean -fd",
+    "language": "bash",
+    "explanation": "`git restore .` reverts all tracked modified and deleted files to HEAD, while `git clean -fd` forcefully removes all untracked files and directories.",
+    "tip": "Run `git clean -nd` first to perform a dry run and inspect what would be deleted.",
+    "author": {
+      "name": "Sarah Chen",
+      "github": "sarahchen"
+    }
+  },
+  {
+    "id": "git-squash-commits",
+    "title": "Interactive Squash of Last N Commits",
+    "category": "Git",
+    "tags": [
+      "git",
+      "rebase",
+      "squash",
+      "clean-history",
+      "pr"
+    ],
+    "code": "git rebase -i HEAD~4",
+    "language": "bash",
+    "explanation": "Opens an interactive editor allowing you to combine the last 4 commits into a single cohesive commit. Replace 'pick' with 'squash' (or 's') on secondary commits to merge them into the previous commit.",
+    "caveat": "Never rebase commits that have already been pushed to a shared production or protected branch, as this rewrites public Git commit hashes.",
+    "variations": [
+      {
+        "label": "Auto-squash fixups",
+        "code": "git rebase -i --autosquash HEAD~4"
+      },
+      {
+        "label": "Abort in-progress rebase",
+        "code": "git rebase --abort"
+      }
+    ],
+    "author": {
+      "name": "Marcus Vance",
+      "github": "mvance-eng"
+    }
+  },
+  {
+    "id": "git-delete-merged-branches",
+    "title": "Prune All Merged Local Branches",
+    "category": "Git",
+    "tags": [
+      "git",
+      "branch",
+      "cleanup",
+      "productivity"
+    ],
+    "code": "git branch --merged | grep -v '\\*\\|main\\|master' | xargs -n 1 git branch -d",
+    "language": "bash",
+    "explanation": "Lists branches already integrated into your current branch, filters out your active branch and main/master, and cleanly deletes each merged branch.",
+    "tip": "Use -D instead of -d if you need to force-delete branches with unmerged squash commits.",
+    "author": {
+      "name": "Devan Koo",
+      "github": "devankoo"
+    }
+  },
+  {
+    "id": "git-clean-remote-branches",
+    "title": "Prune Stale Remote-Tracking Branch References",
+    "category": "Git",
+    "tags": [
+      "git",
+      "remote",
+      "cleanup",
+      "branches",
+      "cli"
+    ],
+    "code": "git fetch --prune --all\ngit branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D",
+    "language": "bash",
+    "explanation": "Fetches updates while removing dead remote references, then locates and force-deletes all local tracking branches whose remote counterparts have already been merged and closed.",
+    "caveat": "The second command uses git branch -D which forcibly deletes. Ensure you have pushed any pending commits before executing.",
+    "variations": [
+      {
+        "label": "Fetch prune only (safe)",
+        "code": "git fetch -p"
+      },
+      {
+        "label": "Configure auto-prune globally",
+        "code": "git config --global fetch.prune true"
+      }
+    ],
+    "author": {
+      "name": "Marcus Vance",
+      "github": "mvance-eng"
+    }
+  },
+  {
+    "id": "git-recover-deleted-commit",
+    "title": "Recover Lost or Discarded Commit via Reflog",
+    "category": "Git",
+    "tags": [
+      "git",
+      "reflog",
+      "recovery",
+      "disaster-recovery",
+      "cli"
+    ],
+    "code": "git reflog | grep -E \"commit|checkout\" -m 5\ngit checkout -b recovery-branch <commit-hash>",
+    "language": "bash",
+    "explanation": "Git keeps a chronological ledger (reflog) of every HEAD update, even for deleted branches or commits dropped by git reset --hard. Locating the hash allows instant recovery into a branch.",
+    "caveat": "Reflog entries expire after 90 days for reachable commits and 30 days for unreachable commits by default, or after git gc runs.",
+    "variations": [
+      {
+        "label": "View full reflog with timestamps",
+        "code": "git reflog --date=relative"
+      },
+      {
+        "label": "Cherry pick the recovered commit",
+        "code": "git cherry-pick <commit-hash>"
+      }
+    ],
+    "author": {
+      "name": "Marcus Vance",
+      "github": "mvance-eng"
+    }
+  },
+  {
+    "id": "git-stash-staged-only",
+    "title": "Stash Staged Changes Only",
+    "category": "Git",
+    "tags": [
+      "git",
+      "stash",
+      "workflow",
+      "staging"
+    ],
+    "code": "git stash push -m \"WIP staged changes\" --staged",
+    "language": "bash",
+    "explanation": "Introduced in Git 2.35+, the --staged flag instructs git stash to shelve only files currently in the index (staging area), leaving unstaged workspace modifications untouched.",
+    "caveat": "Requires Git version 2.35 or newer. For older Git versions, you must stash everything and selectively reapply unstaged differences.",
+    "variations": [
+      {
+        "label": "List stashes with names",
+        "code": "git stash list"
+      },
+      {
+        "label": "Pop the latest stash",
+        "code": "git stash pop"
+      }
+    ],
+    "author": {
+      "name": "Elena Rostova",
+      "github": "erostova"
+    }
+  },
+  {
+    "id": "git-undo-commit",
+    "title": "Undo Last Commit (Keep Changes)",
+    "category": "Git",
+    "tags": [
+      "git",
+      "history",
+      "undo",
+      "commit",
+      "cli"
+    ],
+    "code": "git reset --soft HEAD~1",
+    "language": "bash",
+    "explanation": "Rolls back your commit history by 1 commit, but leaves all modified files staged in your index so you can re-commit with changes.",
+    "tip": "Use --mixed (the default) to unstage the files, or --hard to destroy the commit and all uncommitted code.",
+    "author": {
+      "name": "Alex Rivera",
+      "github": "alexrivera"
+    }
+  },
+  {
+    "id": "git-undo-last-commit",
+    "title": "Undo Last Commit (Preserve Changes)",
+    "category": "Git",
+    "tags": [
+      "git",
+      "history",
+      "undo",
+      "staging",
+      "cli"
+    ],
+    "code": "git reset --soft HEAD~1",
+    "language": "bash",
+    "explanation": "Moves HEAD back by one commit while preserving all modified files in your staging area. This allows you to re-stage, alter the commit message, or adjust your changes before committing again.",
+    "caveat": "Do not use --hard unless you intend to permanently delete all modified code and uncommitted work in the current branch.",
+    "variations": [
+      {
+        "label": "Keep in working tree (unstaged)",
+        "code": "git reset HEAD~1"
+      },
+      {
+        "label": "Completely discard changes",
+        "code": "git reset --hard HEAD~1"
+      }
+    ],
+    "author": {
+      "name": "Sarah Lin",
+      "github": "sarahlin-dev"
+    }
+  },
+  {
+    "id": "js-wait-sleep",
+    "title": "Async Sleep / Delay Promise",
+    "category": "JavaScript",
+    "tags": [
+      "javascript",
+      "async",
+      "promises",
+      "timing"
+    ],
+    "code": "const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));\n\n// Usage:\nawait sleep(1500);",
+    "language": "javascript",
+    "explanation": "Provides a clean, promise-based pause mechanism within any async function, simulating network latency, polling pauses, or sequential visual transitions.",
+    "tip": "Never use blocking synchronous while-loops for delays in JS; they freeze the main UI execution thread.",
+    "author": {
+      "name": "Marcus Vance",
+      "github": "mvance"
+    }
+  },
+  {
+    "id": "js-debounce-implementation",
+    "title": "Debounce Higher-Order Function with Clean Types",
+    "category": "JavaScript",
+    "tags": [
+      "javascript",
+      "typescript",
+      "performance",
+      "events",
+      "ui"
+    ],
+    "code": "function debounce(fn, delayMs = 300) {\n  let timeoutId;\n  return function (...args) {\n    clearTimeout(timeoutId);\n    timeoutId = setTimeout(() => fn.apply(this, args), delayMs);\n  };\n}",
+    "language": "javascript",
+    "explanation": "Postpones the execution of an expensive callback until after a specified period of inactivity has elapsed. Essential for search auto-complete inputs, window resizing, and scroll tracking.",
+    "caveat": "Preserves the 'this' context by avoiding an arrow wrapper on the returned function. Remember to cancel timers in React useEffect cleanup routines.",
+    "variations": [
+      {
+        "label": "Immediate (leading-edge) execution",
+        "code": "function debounceImmediate(fn, delay) { /* executes immediately then cools down */ }"
+      },
+      {
+        "label": "Throttle equivalent (at most once per N ms)",
+        "code": "function throttle(fn, limit) { /* enforce max execution frequency */ }"
+      }
+    ],
+    "author": {
+      "name": "Amina Chen",
+      "github": "aminachen-frontend"
+    }
+  },
+  {
+    "id": "js-deep-clone-native",
+    "title": "Deep Clone Complex Objects with structuredClone",
+    "category": "JavaScript",
+    "tags": [
+      "javascript",
+      "typescript",
+      "es2022",
+      "immutability",
+      "data"
+    ],
+    "code": "const deepCopy = structuredClone(originalObject);",
+    "language": "javascript",
+    "explanation": "Modern web browsers and Node.js (17+) natively support structuredClone(). Unlike JSON.parse(JSON.stringify()), it natively duplicates circular references, Dates, Sets, Maps, RegExps, and TypedArrays.",
+    "caveat": "Cannot serialize functions, DOM nodes, or symbols (throws DataCloneError). For objects with methods, use specialized copy constructors.",
+    "variations": [
+      {
+        "label": "Shallow spread (primitives only)",
+        "code": "const shallow = { ...originalObject };"
+      },
+      {
+        "label": "Legacy JSON fallback (lossy)",
+        "code": "JSON.parse(JSON.stringify(obj))"
+      }
+    ],
+    "author": {
+      "name": "Amina Chen",
+      "github": "aminachen-frontend"
+    }
+  },
+  {
+    "id": "js-debounce",
+    "title": "Minimal Modern Debounce Function",
+    "category": "JavaScript",
+    "tags": [
+      "javascript",
+      "performance",
+      "events",
+      "utility"
+    ],
+    "code": "const debounce = (fn, delay = 300) => {\n  let timeoutId;\n  return (...args) => {\n    clearTimeout(timeoutId);\n    timeoutId = setTimeout(() => fn(...args), delay);\n  };\n};",
+    "language": "javascript",
+    "explanation": "Delays invoking a callback until after a given number of milliseconds have elapsed since the last time the debounced function was invoked.",
+    "tip": "Ideal for search input typing listeners, window resize handlers, and auto-saving form drafts.",
+    "author": {
+      "name": "Devan Koo",
+      "github": "devankoo"
+    }
+  },
+  {
+    "id": "js-deep-clone",
+    "title": "Native Deep Object Clone",
+    "category": "JavaScript",
+    "tags": [
+      "javascript",
+      "objects",
+      "cloning",
+      "web-api"
+    ],
+    "code": "const deepCopy = structuredClone(originalObject);",
+    "language": "javascript",
+    "explanation": "Standard native browser API that deeply clones complex objects, preserving nested structures, Date objects, Maps, Sets, and circular references without lodash.",
+    "tip": "Note: Cannot clone Functions, DOM nodes, or object prototypes; throw an error if attempted.",
+    "author": {
+      "name": "Kai Thorne",
+      "github": "kaithorne"
+    }
+  },
+  {
+    "id": "js-async-retry-exponential",
+    "title": "Robust Async Promise Retry with Exponential Backoff",
+    "category": "JavaScript",
+    "tags": [
+      "javascript",
+      "typescript",
+      "async",
+      "networking",
+      "resilience"
+    ],
+    "code": "async function retryOperation(fn, retries = 3, delay = 1000) {\n  try {\n    return await fn();\n  } catch (error) {\n    if (retries <= 1) throw error;\n    await new Promise(res => setTimeout(res, delay));\n    return retryOperation(fn, retries - 1, delay * 2);\n  }\n}",
+    "language": "javascript",
+    "explanation": "Guarantees network and API resilience against transient rate-limits (HTTP 429) and network blips by doubling the delay period after each failed execution attempt.",
+    "caveat": "Do not retry non-idempotent operations (such as credit card checkout charges) unless idempotency keys are supported by the downstream endpoint.",
+    "variations": [
+      {
+        "label": "Add random jitter to prevent thundering herd",
+        "code": "const jitteredDelay = delay * 2 + Math.random() * 200;"
+      },
+      {
+        "label": "Retry only on specific HTTP status codes",
+        "code": "if (![408, 429, 500, 502, 503].includes(error.status)) throw error;"
+      }
+    ],
+    "author": {
+      "name": "Marcus Vance",
+      "github": "mvance-eng"
+    }
+  },
+  {
+    "id": "linux-follow-logs",
+    "title": "Color-Filtered Live Log Streaming",
+    "category": "Linux",
+    "tags": [
+      "linux",
+      "logs",
+      "monitoring",
+      "tail"
+    ],
+    "code": "tail -f app.log | grep --line-buffered -E \"(ERROR|WARN|FATAL)\"",
+    "language": "bash",
+    "explanation": "Follows log output in real-time, buffering line-by-line so outputs appear immediately when errors or warnings are thrown.",
+    "tip": "Pipe into `grep --color=always` or install `ccat`/`bat` to highlight matching log levels in bright red and yellow.",
+    "author": {
+      "name": "Alex Rivera",
+      "github": "alexrivera"
+    }
+  },
+  {
+    "id": "linux-recursive-text-search",
+    "title": "Fast Recursive Text Search Excluding Artifacts",
+    "category": "Linux",
+    "tags": [
+      "linux",
+      "grep",
+      "search",
+      "cli",
+      "workflow"
+    ],
+    "code": "grep -rnI --exclude-dir={node_modules,.git,dist} \"SECRET_KEY\" .",
+    "language": "bash",
+    "explanation": "Recursively searches directories for the string 'SECRET_KEY', reporting line numbers (-n), skipping binary files (-I), and excluding heavy bloat folders like node_modules and .git.",
+    "caveat": "For massive codebases, ripgrep (rg) or ag (The Silver Searcher) will execute significantly faster than GNU grep.",
+    "variations": [
+      {
+        "label": "Using ripgrep (modern standard)",
+        "code": "rg -i \"SECRET_KEY\" -g '!node_modules/'"
+      },
+      {
+        "label": "Count matching occurrences only",
+        "code": "grep -rc \"SECRET_KEY\" src/"
+      }
+    ],
+    "author": {
+      "name": "Devin Kowalski",
+      "github": "dkowalski-ops"
+    }
+  },
+  {
+    "id": "linux-port-process-lookup",
+    "title": "Identify Process Listening on Specific Port",
+    "category": "Linux",
+    "tags": [
+      "linux",
+      "networking",
+      "ports",
+      "debug",
+      "sysadmin"
+    ],
+    "code": "sudo lsof -i :8080 -sTCP:LISTEN -P -n",
+    "language": "bash",
+    "explanation": "Lists the exact Process Name and PID currently occupying port 8080. The -P flag prevents port name resolution (keeps numeric 8080) and -n avoids DNS lookups for instant results.",
+    "caveat": "If lsof is not installed on lightweight Linux images, fall back to modern ss or legacy netstat commands.",
+    "variations": [
+      {
+        "label": "Using socket statistics (ss)",
+        "code": "ss -tulpn | grep :8080"
+      },
+      {
+        "label": "Kill process occupying the port",
+        "code": "sudo kill -9 $(lsof -t -i:8080)"
+      }
+    ],
+    "author": {
+      "name": "Jordan Hayes",
+      "github": "jhayes-sec"
+    }
+  },
+  {
+    "id": "linux-kill-port",
+    "title": "Kill Any Process Hogging a Port",
+    "category": "Linux",
+    "tags": [
+      "linux",
+      "bash",
+      "ports",
+      "networking",
+      "debug"
+    ],
+    "code": "npx kill-port 3000\n# or natively:\nlsof -ti:3000 | xargs kill -9",
+    "language": "bash",
+    "explanation": "Finds the Process ID (PID) holding a TCP port (e.g. 3000, 8080) and terminates it immediately without having to manually search `ps aux`.",
+    "tip": "Substitute 3000 with whatever port your stubborn local server (Vite, Next.js, Flask) refused to surrender.",
+    "author": {
+      "name": "Devan Koo",
+      "github": "devankoo"
+    }
+  },
+  {
+    "id": "linux-find-large-files",
+    "title": "Locate Top 10 Largest Files in Filesystem",
+    "category": "Linux",
+    "tags": [
+      "linux",
+      "bash",
+      "storage",
+      "disk-cleanup",
+      "sysadmin"
+    ],
+    "code": "find / -xdev -type f -size +100M -exec du -sh {} + 2>/dev/null | sort -rh | head -n 10",
+    "language": "bash",
+    "explanation": "Scans the root mount while staying within the same filesystem (-xdev) to avoid network mounts, finds files over 100MB, prints human-readable sizes, and displays the top 10 space hogs.",
+    "caveat": "Requires sudo permissions to inspect protected system directories such as /var/log or /root.",
+    "variations": [
+      {
+        "label": "Search within current directory only",
+        "code": "find . -type f -size +50M -exec du -h {} + | sort -rh | head -n 10"
+      },
+      {
+        "label": "NCurses interactive disk visualizer",
+        "code": "ncdu /"
+      }
+    ],
+    "author": {
+      "name": "Jordan Hayes",
+      "github": "jhayes-sec"
+    }
+  },
+  {
+    "id": "regex-camel-to-kebab",
+    "title": "Convert camelCase to kebab-case",
+    "category": "Regex",
+    "tags": [
+      "regex",
+      "javascript",
+      "string",
+      "formatter"
+    ],
+    "code": "str.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase()",
+    "language": "javascript",
+    "explanation": "Finds transitions between lowercase/numbers and uppercase letters and inserts a hyphen between them, then converts the result to lowercase.",
+    "tip": "Great for converting React component names or JavaScript object keys into CSS class names or URL slugs.",
+    "author": {
+      "name": "Elena Rostova",
+      "github": "elenarost"
+    }
+  },
+  {
+    "id": "regex-extract-https-urls",
+    "title": "Match and Extract Valid HTTPS Web URLs",
+    "category": "Regex",
+    "tags": [
+      "regex",
+      "parsing",
+      "validation",
+      "strings",
+      "security"
+    ],
+    "code": "https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)",
+    "language": "regex",
+    "explanation": "Extracts protocol-bound web addresses from raw text strings, supporting subdomains, standard top-level domains (TLDs), ports, query strings, and URI fragments.",
+    "caveat": "URL validation via regular expressions is notoriously prone to edge cases. In JavaScript applications, consider pairing this with the native new URL(string) constructor.",
+    "variations": [
+      {
+        "label": "Strict HTTPS enforcement only",
+        "code": "https:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*"
+      },
+      {
+        "label": "Domain name only (FQDN)",
+        "code": "(?=^.{4,253}$)(^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,63}$)"
+      }
+    ],
+    "author": {
+      "name": "Jordan Hayes",
+      "github": "jhayes-sec"
+    }
+  },
+  {
+    "id": "regex-url-extract",
+    "title": "Match HTTP/HTTPS URLs with Paths",
+    "category": "Regex",
+    "tags": [
+      "regex",
+      "url",
+      "parsing",
+      "web"
+    ],
+    "code": "https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)",
+    "language": "regex",
+    "explanation": "Detects web URLs starting with http or https, matching domain names, ports, query strings, and deep path structures.",
+    "tip": "Use the 'g' (global) and 'i' (case-insensitive) flags when parsing long markdown or plain text documents for links.",
+    "author": {
+      "name": "Marcus Vance",
+      "github": "mvance"
+    }
+  },
+  {
+    "id": "regex-match-email",
+    "title": "Practical Email Address Validation",
+    "category": "Regex",
+    "tags": [
+      "regex",
+      "email",
+      "validation",
+      "forms"
+    ],
+    "code": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+    "language": "regex",
+    "explanation": "Validates realistic email syntax: user handles with alphanumeric and common symbols (+, ., _, -), valid domain strings, and a top-level domain of at least 2 characters.",
+    "tip": "Real-world production validation should still rely on sending a verification token; RFC 5322 regexes are hundreds of characters long and often over-restrictive.",
+    "author": {
+      "name": "Devan Koo",
+      "github": "devankoo"
+    }
+  },
+  {
+    "id": "regex-strict-semver",
+    "title": "Strict Semantic Versioning (SemVer 2.0.0)",
+    "category": "Regex",
+    "tags": [
+      "regex",
+      "semver",
+      "npm",
+      "releases",
+      "validation"
+    ],
+    "code": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$",
+    "language": "regex",
+    "explanation": "The official regular expression defined by the SemVer 2.0.0 specification. Accurately validates MAJOR.MINOR.PATCH versions, along with optional pre-release tags (-alpha.1) and build metadata (+20230101).",
+    "caveat": "Disallows leading zeros in numeric identifiers (e.g. 1.02.3 is invalid), adhering strictly to specification rules.",
+    "variations": [
+      {
+        "label": "Loose SemVer (allows leading 'v')",
+        "code": "^v?(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)"
+      },
+      {
+        "label": "Named capture groups (ECMAScript)",
+        "code": "^(?<major>0|[1-9]\\d*)\\.(?<minor>0|[1-9]\\d*)\\.(?<patch>0|[1-9]\\d*)"
+      }
+    ],
+    "author": {
+      "name": "Jordan Hayes",
+      "github": "jhayes-sec"
+    }
+  },
+  {
+    "id": "regex-iso-8601-datetime",
+    "title": "Validate Strict ISO 8601 UTC Timestamps",
+    "category": "Regex",
+    "tags": [
+      "regex",
+      "iso8601",
+      "timestamps",
+      "datetime",
+      "api"
+    ],
+    "code": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$",
+    "language": "regex",
+    "explanation": "Validates standardized UTC and timezone-offset timestamp representations (e.g. 2026-09-30T10:15:30Z or 2026-09-30T15:45:00+05:30) with optional millisecond fractions.",
+    "caveat": "Validates format structure only; it will not catch impossible calendar dates like February 31st. For full calendar logic, pair with date-fns or native Date validation.",
+    "variations": [
+      {
+        "label": "UTC 'Z' format only",
+        "code": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+      },
+      {
+        "label": "Date-only YYYY-MM-DD",
+        "code": "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$"
+      }
+    ],
+    "author": {
+      "name": "Sarah Lin",
+      "github": "sarahlin-dev"
+    }
+  },
+  {
+    "id": "sql-find-duplicate-records",
+    "title": "Find and Group Duplicate Records in Table",
+    "category": "SQL",
+    "tags": [
+      "sql",
+      "data-integrity",
+      "queries",
+      "analytics",
+      "backend"
+    ],
+    "code": "SELECT email, COUNT(*)\nFROM users\nGROUP BY email\nHAVING COUNT(*) > 1\nORDER BY count DESC;",
+    "language": "sql",
+    "explanation": "Aggregates rows sharing the same value and filters out unique items using HAVING COUNT(*) > 1, isolating duplicate entries before applying deduplication scripts.",
+    "caveat": "WHERE filters rows before grouping occurs, while HAVING filters aggregated group results after grouping.",
+    "variations": [
+      {
+        "label": "List full rows using window function",
+        "code": "SELECT *, ROW_NUMBER() OVER (PARTITION BY email ORDER BY id) as rn FROM users;"
+      },
+      {
+        "label": "Delete duplicates keeping lowest id",
+        "code": "DELETE FROM users WHERE id NOT IN (SELECT MIN(id) FROM users GROUP BY email);"
+      }
+    ],
+    "author": {
+      "name": "Marcus Vance",
+      "github": "mvance-eng"
+    }
+  },
+  {
+    "id": "sql-find-duplicates",
+    "title": "Find Duplicate Records Across Columns",
+    "category": "SQL",
+    "tags": [
+      "sql",
+      "database",
+      "query",
+      "data-cleanup"
+    ],
+    "code": "SELECT email, COUNT(*)\nFROM users\nGROUP BY email\nHAVING COUNT(*) > 1\nORDER BY count DESC;",
+    "language": "sql",
+    "explanation": "Aggregates rows grouped by a unique column (e.g. email or username) and filters with HAVING to display only values that occur more than once.",
+    "tip": "Use a CTE with `ROW_NUMBER() OVER (PARTITION BY email ORDER BY created_at)` if you need to selectively delete the older duplicates.",
+    "author": {
+      "name": "Alex Rivera",
+      "github": "alexrivera"
+    }
+  },
+  {
+    "id": "sql-upsert-record",
+    "title": "PostgreSQL Upsert with ON CONFLICT DO UPDATE",
+    "category": "SQL",
+    "tags": [
+      "sql",
+      "postgresql",
+      "database",
+      "upsert",
+      "backend"
+    ],
+    "code": "INSERT INTO user_preferences (user_id, theme, updated_at)\nVALUES ('u_9281', 'dark', NOW())\nON CONFLICT (user_id)\nDO UPDATE SET\n  theme = EXCLUDED.theme,\n  updated_at = NOW();",
+    "language": "sql",
+    "explanation": "Atomically inserts a new record or performs an update if a unique constraint or primary key conflict exists on the target column, avoiding race conditions in concurrent write workloads.",
+    "caveat": "The target column(s) inside ON CONFLICT must have a corresponding UNIQUE constraint or PRIMARY KEY index defined on the table schema.",
+    "variations": [
+      {
+        "label": "Ignore on conflict (DO NOTHING)",
+        "code": "ON CONFLICT (user_id) DO NOTHING;"
+      },
+      {
+        "label": "MySQL equivalent",
+        "code": "INSERT INTO ... ON DUPLICATE KEY UPDATE theme=VALUES(theme);"
+      }
+    ],
+    "author": {
+      "name": "Sarah Lin",
+      "github": "sarahlin-dev"
+    }
+  }
+]

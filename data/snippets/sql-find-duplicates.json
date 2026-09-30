@@ -1,0 +1,14 @@
+{
+  "id": "sql-find-duplicates",
+  "title": "Find Duplicate Records Across Columns",
+  "category": "SQL",
+  "tags": ["sql", "database", "query", "data-cleanup"],
+  "code": "SELECT email, COUNT(*)\nFROM users\nGROUP BY email\nHAVING COUNT(*) > 1\nORDER BY count DESC;",
+  "language": "sql",
+  "explanation": "Aggregates rows grouped by a unique column (e.g. email or username) and filters with HAVING to display only values that occur more than once.",
+  "tip": "Use a CTE with `ROW_NUMBER() OVER (PARTITION BY email ORDER BY created_at)` if you need to selectively delete the older duplicates.",
+  "author": {
+    "name": "Alex Rivera",
+    "github": "alexrivera"
+  }
+}

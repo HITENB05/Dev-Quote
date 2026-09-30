@@ -1,0 +1,14 @@
+{
+  "id": "docker-inspect-ip",
+  "title": "Get Running Container Internal IP",
+  "category": "Docker",
+  "tags": ["docker", "networking", "inspect", "cli"],
+  "code": "docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_name>",
+  "language": "bash",
+  "explanation": "Extracts the internal bridge network IPv4 address assigned to a running container without needing to dump and scroll the full JSON inspect output.",
+  "tip": "Replace <container_name> with the container's nickname or its 12-character hexadecimal ID.",
+  "author": {
+    "name": "Sarah Chen",
+    "github": "sarahchen"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "regex-url-extract",
+  "title": "Match HTTP/HTTPS URLs with Paths",
+  "category": "Regex",
+  "tags": ["regex", "url", "parsing", "web"],
+  "code": "https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)",
+  "language": "regex",
+  "explanation": "Detects web URLs starting with http or https, matching domain names, ports, query strings, and deep path structures.",
+  "tip": "Use the 'g' (global) and 'i' (case-insensitive) flags when parsing long markdown or plain text documents for links.",
+  "author": {
+    "name": "Marcus Vance",
+    "github": "mvance"
+  }
+}

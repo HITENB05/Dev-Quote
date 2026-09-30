@@ -1,0 +1,18 @@
+{
+  "id": "git-recover-deleted-commit",
+  "title": "Recover Lost or Discarded Commit via Reflog",
+  "category": "Git",
+  "tags": ["git", "reflog", "recovery", "disaster-recovery", "cli"],
+  "code": "git reflog | grep -E \"commit|checkout\" -m 5\ngit checkout -b recovery-branch <commit-hash>",
+  "language": "bash",
+  "explanation": "Git keeps a chronological ledger (reflog) of every HEAD update, even for deleted branches or commits dropped by git reset --hard. Locating the hash allows instant recovery into a branch.",
+  "caveat": "Reflog entries expire after 90 days for reachable commits and 30 days for unreachable commits by default, or after git gc runs.",
+  "variations": [
+    { "label": "View full reflog with timestamps", "code": "git reflog --date=relative" },
+    { "label": "Cherry pick the recovered commit", "code": "git cherry-pick <commit-hash>" }
+  ],
+  "author": {
+    "name": "Marcus Vance",
+    "github": "mvance-eng"
+  }
+}

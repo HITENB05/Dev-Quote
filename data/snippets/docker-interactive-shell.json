@@ -1,0 +1,18 @@
+{
+  "id": "docker-interactive-shell",
+  "title": "Attach Interactive Shell to Running Container",
+  "category": "Docker",
+  "tags": ["docker", "containers", "debugging", "shell", "bash"],
+  "code": "docker exec -it <container_name_or_id> /bin/sh",
+  "language": "bash",
+  "explanation": "Spawns an interactive pseudo-TTY session inside the target container. Using /bin/sh is safer than /bin/bash as minimal base images (Alpine, distroless) rarely include bash.",
+  "caveat": "If debugging a non-root container with permission locks, append --user root to elevate inside the temporary debug shell.",
+  "variations": [
+    { "label": "Execute as root user", "code": "docker exec -u 0 -it <container_id> sh" },
+    { "label": "Run one-off diagnostic command", "code": "docker exec <container_id> cat /etc/hosts" }
+  ],
+  "author": {
+    "name": "Sarah Lin",
+    "github": "sarahlin-dev"
+  }
+}

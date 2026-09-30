@@ -1,0 +1,14 @@
+{
+  "id": "css-truncate-multiline",
+  "title": "Clean Multiline Text Ellipsis",
+  "category": "CSS",
+  "tags": ["css", "overflow", "typography", "layout"],
+  "code": "display: -webkit-box;\n-webkit-line-clamp: 3;\n-webkit-box-orient: vertical;\noverflow: hidden;\ntext-overflow: ellipsis;",
+  "language": "css",
+  "explanation": "Truncates long text gracefully after exactly 3 lines (or any specified number) with a native ellipsis (...) without cutting off halfway through letters.",
+  "tip": "Works reliably across all modern evergreen browsers including iOS WebKit and Android Chromium.",
+  "author": {
+    "name": "Sarah Chen",
+    "github": "sarahchen"
+  }
+}

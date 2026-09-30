@@ -1,0 +1,14 @@
+{
+  "id": "js-debounce",
+  "title": "Minimal Modern Debounce Function",
+  "category": "JavaScript",
+  "tags": ["javascript", "performance", "events", "utility"],
+  "code": "const debounce = (fn, delay = 300) => {\n  let timeoutId;\n  return (...args) => {\n    clearTimeout(timeoutId);\n    timeoutId = setTimeout(() => fn(...args), delay);\n  };\n};",
+  "language": "javascript",
+  "explanation": "Delays invoking a callback until after a given number of milliseconds have elapsed since the last time the debounced function was invoked.",
+  "tip": "Ideal for search input typing listeners, window resize handlers, and auto-saving form drafts.",
+  "author": {
+    "name": "Devan Koo",
+    "github": "devankoo"
+  }
+}

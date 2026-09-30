@@ -1,0 +1,18 @@
+{
+  "id": "css-modern-fluid-clamp",
+  "title": "Fluid Responsive Typography via clamp()",
+  "category": "CSS",
+  "tags": ["css", "typography", "responsive", "layout", "design-system"],
+  "code": "font-size: clamp(1.125rem, 0.95rem + 1.25vw, 2.25rem);",
+  "language": "css",
+  "explanation": "Calculates font sizing dynamically without requiring multiple media query breakpoints. Sets minimum bound (1.125rem), fluid scaling formula based on viewport width (vw), and strict upper ceiling (2.25rem).",
+  "caveat": "Always combine viewport units with rem/em units (e.g. 0.95rem + 1.25vw) so users who zoom their browser font sizes maintain accessible text scaling.",
+  "variations": [
+    { "label": "Fluid container padding", "code": "padding-inline: clamp(1rem, 5vw, 4rem);" },
+    { "label": "Fluid header scale", "code": "font-size: clamp(2rem, 1.5rem + 3vw, 4.5rem);" }
+  ],
+  "author": {
+    "name": "Elena Rostova",
+    "github": "erostova"
+  }
+}

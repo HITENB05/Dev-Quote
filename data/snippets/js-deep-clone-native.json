@@ -1,0 +1,18 @@
+{
+  "id": "js-deep-clone-native",
+  "title": "Deep Clone Complex Objects with structuredClone",
+  "category": "JavaScript",
+  "tags": ["javascript", "typescript", "es2022", "immutability", "data"],
+  "code": "const deepCopy = structuredClone(originalObject);",
+  "language": "javascript",
+  "explanation": "Modern web browsers and Node.js (17+) natively support structuredClone(). Unlike JSON.parse(JSON.stringify()), it natively duplicates circular references, Dates, Sets, Maps, RegExps, and TypedArrays.",
+  "caveat": "Cannot serialize functions, DOM nodes, or symbols (throws DataCloneError). For objects with methods, use specialized copy constructors.",
+  "variations": [
+    { "label": "Shallow spread (primitives only)", "code": "const shallow = { ...originalObject };" },
+    { "label": "Legacy JSON fallback (lossy)", "code": "JSON.parse(JSON.stringify(obj))" }
+  ],
+  "author": {
+    "name": "Amina Chen",
+    "github": "aminachen-frontend"
+  }
+}

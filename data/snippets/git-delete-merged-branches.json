@@ -1,0 +1,14 @@
+{
+  "id": "git-delete-merged-branches",
+  "title": "Prune All Merged Local Branches",
+  "category": "Git",
+  "tags": ["git", "branch", "cleanup", "productivity"],
+  "code": "git branch --merged | grep -v '\\*\\|main\\|master' | xargs -n 1 git branch -d",
+  "language": "bash",
+  "explanation": "Lists branches already integrated into your current branch, filters out your active branch and main/master, and cleanly deletes each merged branch.",
+  "tip": "Use -D instead of -d if you need to force-delete branches with unmerged squash commits.",
+  "author": {
+    "name": "Devan Koo",
+    "github": "devankoo"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "regex-match-email",
+  "title": "Practical Email Address Validation",
+  "category": "Regex",
+  "tags": ["regex", "email", "validation", "forms"],
+  "code": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+  "language": "regex",
+  "explanation": "Validates realistic email syntax: user handles with alphanumeric and common symbols (+, ., _, -), valid domain strings, and a top-level domain of at least 2 characters.",
+  "tip": "Real-world production validation should still rely on sending a verification token; RFC 5322 regexes are hundreds of characters long and often over-restrictive.",
+  "author": {
+    "name": "Devan Koo",
+    "github": "devankoo"
+  }
+}

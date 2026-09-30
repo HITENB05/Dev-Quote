@@ -1,0 +1,27 @@
+{
+  "name": "devquote",
+  "version": "1.0.0",
+  "description": "DevQuote - Open source developer cheat sheet wall with 3D flippable cards",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "build:data": "node scripts/build-data.js",
+    "test:snippets": "node scripts/validate-snippets.js"
+  },
+  "keywords": [
+    "cheat-sheet",
+    "developer-tools",
+    "snippets",
+    "git",
+    "css",
+    "regex",
+    "linux"
+  ],
+  "author": "Dev Community",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^8.3.1"
+  }
+}

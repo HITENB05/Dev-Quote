@@ -1,0 +1,18 @@
+{
+  "id": "css-grid-auto-fit-cards",
+  "title": "Responsive Auto-Fitting Grid Without Media Queries",
+  "category": "CSS",
+  "tags": ["css", "grid", "responsive", "cards", "layout"],
+  "code": ".card-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));\n  gap: 1.5rem;\n}",
+  "language": "css",
+  "explanation": "Creates a flawless fluid grid where cards wrap naturally as screen space allows. The min(100%, 320px) guard prevents unwanted horizontal overflow on ultra-narrow mobile displays.",
+  "caveat": "Use auto-fill instead of auto-fit if you prefer empty column slots on wider screens rather than stretching few items to full screen width.",
+  "variations": [
+    { "label": "Stretch sparse items (auto-fit)", "code": "grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));" },
+    { "label": "Subgrid support for aligned footers", "code": "grid-template-rows: subgrid;" }
+  ],
+  "author": {
+    "name": "Elena Rostova",
+    "github": "erostova"
+  }
+}

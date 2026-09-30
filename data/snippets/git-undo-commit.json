@@ -1,0 +1,14 @@
+{
+  "id": "git-undo-commit",
+  "title": "Undo Last Commit (Keep Changes)",
+  "category": "Git",
+  "tags": ["git", "history", "undo", "commit", "cli"],
+  "code": "git reset --soft HEAD~1",
+  "language": "bash",
+  "explanation": "Rolls back your commit history by 1 commit, but leaves all modified files staged in your index so you can re-commit with changes.",
+  "tip": "Use --mixed (the default) to unstage the files, or --hard to destroy the commit and all uncommitted code.",
+  "author": {
+    "name": "Alex Rivera",
+    "github": "alexrivera"
+  }
+}

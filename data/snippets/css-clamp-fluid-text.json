@@ -1,0 +1,14 @@
+{
+  "id": "css-clamp-fluid-text",
+  "title": "Fluid Responsive Typography with Clamp",
+  "category": "CSS",
+  "tags": ["css", "typography", "responsive", "clamp"],
+  "code": "font-size: clamp(1.25rem, 1rem + 2.5vw, 3rem);",
+  "language": "css",
+  "explanation": "Calculates font size dynamically based on viewport width: never shrinks below 1.25rem (min), scales proportionally on mid-size screens, and caps at 3rem (max) without media queries.",
+  "tip": "Combine rem with vw units to ensure users who adjust their browser base font size still see accessible scaling.",
+  "author": {
+    "name": "Marcus Vance",
+    "github": "mvance"
+  }
+}

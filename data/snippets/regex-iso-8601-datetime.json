@@ -1,0 +1,18 @@
+{
+  "id": "regex-iso-8601-datetime",
+  "title": "Validate Strict ISO 8601 UTC Timestamps",
+  "category": "Regex",
+  "tags": ["regex", "iso8601", "timestamps", "datetime", "api"],
+  "code": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$",
+  "language": "regex",
+  "explanation": "Validates standardized UTC and timezone-offset timestamp representations (e.g. 2026-09-30T10:15:30Z or 2026-09-30T15:45:00+05:30) with optional millisecond fractions.",
+  "caveat": "Validates format structure only; it will not catch impossible calendar dates like February 31st. For full calendar logic, pair with date-fns or native Date validation.",
+  "variations": [
+    { "label": "UTC 'Z' format only", "code": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$" },
+    { "label": "Date-only YYYY-MM-DD", "code": "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$" }
+  ],
+  "author": {
+    "name": "Sarah Lin",
+    "github": "sarahlin-dev"
+  }
+}

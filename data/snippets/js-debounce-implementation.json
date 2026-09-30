@@ -1,0 +1,18 @@
+{
+  "id": "js-debounce-implementation",
+  "title": "Debounce Higher-Order Function with Clean Types",
+  "category": "JavaScript",
+  "tags": ["javascript", "typescript", "performance", "events", "ui"],
+  "code": "function debounce(fn, delayMs = 300) {\n  let timeoutId;\n  return function (...args) {\n    clearTimeout(timeoutId);\n    timeoutId = setTimeout(() => fn.apply(this, args), delayMs);\n  };\n}",
+  "language": "javascript",
+  "explanation": "Postpones the execution of an expensive callback until after a specified period of inactivity has elapsed. Essential for search auto-complete inputs, window resizing, and scroll tracking.",
+  "caveat": "Preserves the 'this' context by avoiding an arrow wrapper on the returned function. Remember to cancel timers in React useEffect cleanup routines.",
+  "variations": [
+    { "label": "Immediate (leading-edge) execution", "code": "function debounceImmediate(fn, delay) { /* executes immediately then cools down */ }" },
+    { "label": "Throttle equivalent (at most once per N ms)", "code": "function throttle(fn, limit) { /* enforce max execution frequency */ }" }
+  ],
+  "author": {
+    "name": "Amina Chen",
+    "github": "aminachen-frontend"
+  }
+}

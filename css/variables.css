@@ -1,0 +1,74 @@
+:root {
+  /* Color Palette - Obsidian Dark */
+  --bg-primary: #07090e;
+  --bg-secondary: #0d111a;
+  --bg-tertiary: #131926;
+  --bg-elevated: #182030;
+  --bg-surface-glass: rgba(13, 17, 26, 0.75);
+  --bg-surface-glass-border: rgba(255, 255, 255, 0.08);
+
+  /* Borders & Dividers */
+  --border-subtle: #1e2638;
+  --border-medium: #2a344d;
+  --border-focus: #38bdf8;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Text Colors */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-dim: #475569;
+
+  /* Domain Category Accents */
+  --accent-git: #f97316;
+  --accent-git-bg: rgba(249, 115, 22, 0.12);
+  --accent-docker: #0284c7;
+  --accent-docker-bg: rgba(2, 132, 199, 0.12);
+  --accent-linux: #10b981;
+  --accent-linux-bg: rgba(16, 185, 129, 0.12);
+  --accent-js: #eab308;
+  --accent-js-bg: rgba(234, 179, 8, 0.12);
+  --accent-css: #ec4899;
+  --accent-css-bg: rgba(236, 72, 153, 0.12);
+  --accent-sql: #8b5cf6;
+  --accent-sql-bg: rgba(139, 92, 246, 0.12);
+  --accent-regex: #06b6d4;
+  --accent-regex-bg: rgba(6, 182, 212, 0.12);
+
+  /* Primary Brand Accent */
+  --brand-cyan: #38bdf8;
+  --brand-cyan-glow: rgba(56, 189, 248, 0.25);
+  --brand-emerald: #10b981;
+  --brand-violet: #6366f1;
+
+  /* Spacing */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+  --shadow-card: 0 8px 24px -4px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--border-subtle);
+  --shadow-card-hover: 0 16px 36px -4px rgba(0, 0, 0, 0.65), 0 0 0 1px var(--border-medium);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 240ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}

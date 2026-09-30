@@ -1,0 +1,18 @@
+{
+  "id": "git-stash-staged-only",
+  "title": "Stash Staged Changes Only",
+  "category": "Git",
+  "tags": ["git", "stash", "workflow", "staging"],
+  "code": "git stash push -m \"WIP staged changes\" --staged",
+  "language": "bash",
+  "explanation": "Introduced in Git 2.35+, the --staged flag instructs git stash to shelve only files currently in the index (staging area), leaving unstaged workspace modifications untouched.",
+  "caveat": "Requires Git version 2.35 or newer. For older Git versions, you must stash everything and selectively reapply unstaged differences.",
+  "variations": [
+    { "label": "List stashes with names", "code": "git stash list" },
+    { "label": "Pop the latest stash", "code": "git stash pop" }
+  ],
+  "author": {
+    "name": "Elena Rostova",
+    "github": "erostova"
+  }
+}

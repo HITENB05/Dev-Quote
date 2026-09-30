@@ -1,0 +1,18 @@
+{
+  "id": "regex-strict-semver",
+  "title": "Strict Semantic Versioning (SemVer 2.0.0)",
+  "category": "Regex",
+  "tags": ["regex", "semver", "npm", "releases", "validation"],
+  "code": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$",
+  "language": "regex",
+  "explanation": "The official regular expression defined by the SemVer 2.0.0 specification. Accurately validates MAJOR.MINOR.PATCH versions, along with optional pre-release tags (-alpha.1) and build metadata (+20230101).",
+  "caveat": "Disallows leading zeros in numeric identifiers (e.g. 1.02.3 is invalid), adhering strictly to specification rules.",
+  "variations": [
+    { "label": "Loose SemVer (allows leading 'v')", "code": "^v?(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)" },
+    { "label": "Named capture groups (ECMAScript)", "code": "^(?<major>0|[1-9]\\d*)\\.(?<minor>0|[1-9]\\d*)\\.(?<patch>0|[1-9]\\d*)" }
+  ],
+  "author": {
+    "name": "Jordan Hayes",
+    "github": "jhayes-sec"
+  }
+}
