@@ -796,6 +796,26 @@
     }
   },
   {
+    "id": "regex-slugify-title",
+    "title": "Convert Text to Clean URL Slug",
+    "category": "Regex",
+    "tags": [
+      "regex",
+      "javascript",
+      "slug",
+      "urls",
+      "formatting"
+    ],
+    "code": "str.toLowerCase()\n  .trim()\n  .replace(/[^\\w\\s-]/g, '')\n  .replace(/[\\s_-]+/g, '-')\n  .replace(/^-+|-+$/g, '');",
+    "language": "javascript",
+    "explanation": "Sanitizes text by stripping punctuation and special characters, collapsing whitespace/underscores into single hyphens, and trimming leading or trailing dashes.",
+    "caveat": "For non-Latin characters (accents/diacritics), normalize first with `.normalize('NFD').replace(/[\\u0300-\\u036f]/g, '')` before running regex.",
+    "author": {
+      "name": "Your Name",
+      "github": "your-github-username"
+    }
+  },
+  {
     "id": "regex-extract-https-urls",
     "title": "Match and Extract Valid HTTPS Web URLs",
     "category": "Regex",
