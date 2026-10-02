@@ -8,7 +8,7 @@
   "explanation": "Extracts the exact changes introduced in a specific commit from another branch and replays them as a new commit onto your current working branch.",
   "caveat": "If conflicts arise, resolve them and run `git cherry-pick --continue`. To cancel and revert cleanly, run `git cherry-pick --abort`.",
   "author": {
-    "name": "Your Name",
-    "github": "your-github-username"
+    "name": "Hiten Bansal",
+    "github": "HITENB05"
   }
 }
