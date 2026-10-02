@@ -1,0 +1,14 @@
+{
+  "id": "git-cherry-pick-commit",
+  "title": "Apply a Specific Commit to Current Branch (Cherry-Pick)",
+  "category": "Git",
+  "tags": ["git", "cherry-pick", "commits", "branches", "cli"],
+  "code": "git cherry-pick <commit-hash>\n# Or to cherry-pick without auto-committing:\ngit cherry-pick -n <commit-hash>",
+  "language": "bash",
+  "explanation": "Extracts the exact changes introduced in a specific commit from another branch and replays them as a new commit onto your current working branch.",
+  "caveat": "If conflicts arise, resolve them and run `git cherry-pick --continue`. To cancel and revert cleanly, run `git cherry-pick --abort`.",
+  "author": {
+    "name": "Your Name",
+    "github": "your-github-username"
+  }
+}
